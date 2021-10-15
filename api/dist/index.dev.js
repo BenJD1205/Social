@@ -20,7 +20,9 @@ var authRoute = require("./routes/auth");
 
 var postRoute = require("./routes/posts");
 
-var router = express.Router();
+var conversationRoute = require("./routes/conversations");
+
+var messageRoute = require("./routes/messages");
 
 var path = require("path");
 
@@ -58,6 +60,8 @@ app.post("/api/upload", upload.single("file"), function (req, res) {
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
 app.listen(8800, function () {
   console.log("Backend server is running!");
 });
